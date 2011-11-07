@@ -1,0 +1,32 @@
+<meta http-equiv="refresh" content="0" />
+
+<div
+	style="
+	float: left;
+	margin-right: 20px">
+	<% i = 0 %>
+	<table
+		style="
+		background-color: #<%= @world.red.to_s(16).rjust(2, '0') + @world.green.to_s(16).rjust(2, '0') + @world.blue.to_s(16).rjust(2, '0')%>;
+		padding: 20px;
+		border-spacing: 5px">
+		<% 20.times do %>
+		<tr>
+			<% 20.times do %>
+			<td
+				style="
+				background-color: #<%= @gen[i].red.to_s(16).rjust(2, '0') + @gen[i].green.to_s(16).rjust(2, '0') + @gen[i].blue.to_s(16).rjust(2, '0')%>;
+				height: 20px;
+				width: 20px;">
+			</td>
+			<% i = i + 1 %>
+			<% end %>
+		</tr>
+		<% end %>
+	</table>
+</div>
+
+<div>
+	<br/><br/><br/>
+	<%= link_to "Change the World! (Pause)", "http://localhost:3000/main/modify" %>
+</div>

@@ -1,0 +1,41 @@
+
+
+<div
+	style="
+	float: left;
+	margin-right: 20px">
+	<% i = 0 %>
+	<table
+		style="
+		background-color: #<%= @world.red.to_s(16).rjust(2, '0') + @world.green.to_s(16).rjust(2, '0') + @world.blue.to_s(16).rjust(2, '0')%>;
+		padding: 20px;
+		border-spacing: 5px">
+		<% 20.times do %>
+		<tr>
+			<% 20.times do %>
+			<td
+				style="
+				background-color: #<%= @gen[i].red.to_s(16).rjust(2, '0') + @gen[i].green.to_s(16).rjust(2, '0') + @gen[i].blue.to_s(16).rjust(2, '0')%>;
+				height: 20px;
+				width: 20px;">
+			</td>
+			<% i = i + 1 %>
+			<% end %>
+		</tr>
+		<% end %>
+	</table>
+</div>
+
+<div>
+	<br/><br/><br/>
+	<%= form_for @world, :url => "/main/update" do |form| %>
+	  <p>Red (0-255): <%= form.text_field :red %></p>
+	  <p>Green (0-255): <%= form.text_field :green %></p>
+	  <p>Blue (0-255): <%= form.text_field :blue %></p>
+	  <p>Number of losers (0-400): <%= form.text_field :num_losers %></p>
+	  <p>Mutation frequency (0-1): <%= form.text_field :mutation_frequency %></p>
+	  <p>Max mutation size (0-255): <%= form.text_field :mutation_size %></p>
+	<%= form.submit 'Change the world'%>
+	<% end %>
+</div>
+
