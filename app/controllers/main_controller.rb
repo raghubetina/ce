@@ -24,7 +24,7 @@ class MainController < ApplicationController
       new_ind.save
     end
     
-    redirect_to "http://localhost:3000/main/draw"
+    redirect_to "/main/draw"
   end
   
   def modify
@@ -50,7 +50,7 @@ class MainController < ApplicationController
       gen[i].save
     end
     
-    redirect_to "http://localhost:3000/main/draw"
+    redirect_to "/main/draw"
   end
 
   def draw
