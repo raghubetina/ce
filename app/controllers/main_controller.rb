@@ -59,7 +59,7 @@ class MainController < ApplicationController
 
     sorted_gen = Individual.all.sort { |a,b| a.score <=> b.score }
     
-    num_losers = @world.num_losers
+    num_losers = @world.num_losers.to_i
     num_losers.times do |i|
       sorted_gen[(400 - num_losers) + i].red = sorted_gen[i].red
       sorted_gen[(400 - num_losers) + i].green = sorted_gen[i].green
